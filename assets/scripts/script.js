@@ -13,7 +13,22 @@ function createGrid(number){
 
 createGrid(16);
 
+function getSize(){
+    const mainContainer = document.getElementById('main-container');
+    let squares = prompt("Input: ");
+    if (squares > 16){
+        alert("The grid can't be bigger than 16x16 squares!");
+        getSize();
+    }else {
 
+        while (mainContainer.firstChild) {
+            mainContainer.removeChild(mainContainer.lastChild);
+          }
+    
+        createGrid(squares);
+    }
+    
+}
 
-
+sizeBtn.addEventListener('click', getSize);
 
