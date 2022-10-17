@@ -1,4 +1,5 @@
 const sizeBtn = document.getElementById('pad-size-button');
+const sizeTell = document.getElementById('pad-size-teller');
 
 function createGrid(number){
     const mainContainer = document.getElementById('main-container');
