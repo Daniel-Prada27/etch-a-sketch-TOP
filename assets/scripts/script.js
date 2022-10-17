@@ -3,7 +3,7 @@ const sizeTell = document.getElementById('pad-size-teller');
 
 function createGrid(number){
     const mainContainer = document.getElementById('main-container');
-    mainContainer.style.cssText = `grid-template-columns: repeat(${number}, auto);`
+    mainContainer.style.cssText = `grid-template-columns: repeat(${number}, 1fr); grid-template-rows: repeat(${number}, 1fr);`
     for(let i = 0; i < number*number; i++){
         let divFromGrid = document.createElement('div');
         divFromGrid.classList.add("cell")
@@ -17,8 +17,12 @@ createGrid(16);
 function getSize(){
     const mainContainer = document.getElementById('main-container');
     let squares = prompt("Input: ");
-    if (squares > 16){
-        alert("The grid can't be bigger than 16x16 squares!");
+    let floorSquares = Math.floor(squares);
+    if(isNaN(squares) || squares == ""){
+        alert("Must enter a number!");
+        getSize();
+    }else if (floorSquares > 100){
+        alert("The grid can't be bigger than 100x100 squares!");
         getSize();
     }else {
 
@@ -26,7 +30,7 @@ function getSize(){
             mainContainer.removeChild(mainContainer.lastChild);
           }
     
-        createGrid(squares);
+        createGrid(floorSquares);
     }
     
 }
