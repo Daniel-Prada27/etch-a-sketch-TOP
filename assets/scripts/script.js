@@ -65,12 +65,20 @@ function blackColoring(event){
     console.log(event.srcElement.id);
 }
 
+function eraserColoring(event){
+    event.srcElement.style.cssText = "background-color: rgb(201, 201, 200);";
+    console.log(event.srcElement.id);
+}
+
 createGrid(16);
 sizeBtn.addEventListener('click', getSize);
 
 let eachCell = document.querySelectorAll('.cell');
 
 blackBtn.addEventListener('click', function(e){
+    blackBtn.style.cssText = "background-color: rgb(255, 0, 0)";
+    rainbowBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    eraserBtn.style.cssText = "background-color: rgb(173, 43, 43);"
     for (let i = 0; i < eachCell.length; i++) {
         eachCell[i].addEventListener('mouseover', function(e){
             if(e.buttons == 1){
@@ -81,6 +89,9 @@ blackBtn.addEventListener('click', function(e){
 });
 
 rainbowBtn.addEventListener('click', function(e){
+    rainbowBtn.style.cssText = "background-color: rgb(255, 0, 0)";
+    eraserBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    blackBtn.style.cssText = "background-color: rgb(173, 43, 43);"
     for (let i = 0; i < eachCell.length; i++) {
         eachCell[i].addEventListener('mouseover', function(e){
             if(e.buttons == 1){
@@ -90,8 +101,27 @@ rainbowBtn.addEventListener('click', function(e){
     }
 });
 
+eraserBtn.addEventListener('click', function(e){
+    eraserBtn.style.cssText = "background-color: rgb(255, 0, 0)";
+    rainbowBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    blackBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mouseover', function(e){
+            if(e.buttons == 1){
+                eraserColoring(e);
+            }
+        });
+    }
+});
 
-
+clearBtn.addEventListener('click', function(e){
+    blackBtn.style.cssText = "background-color: rgb(173, 43, 43)";
+    rainbowBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    eraserBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].style.cssText = "background-color: rgb(201, 201, 200);"
+    }
+});
 
 for (let i = 0; i < eachCell.length; i++) {
     eachCell[i].addEventListener('mouseover', function(e){

@@ -45,13 +45,10 @@ div {
     min-width: 0;
     min-height: 0;
     background-color: rgb(201, 201, 200);
-    border: solid black 1px;
+    /* border: solid black 1px; */
     margin: 0px;
 }
 
-.cell:focus {
-    background-color: rgba(60, 91, 160, 0.767);
-}
 
 #buttons-container {
     display: flex;
@@ -69,6 +66,10 @@ div {
     background-color: rgb(173, 43, 43);
     color: white;
     margin: 5px;
+}
+
+#clear-button:active {
+    background-color: rgb(255, 0, 0);
 }
 
 #pad-size-teller {
