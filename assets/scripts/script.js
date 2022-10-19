@@ -1,5 +1,12 @@
 const sizeBtn = document.getElementById('pad-size-button');
 const sizeTell = document.getElementById('pad-size-teller');
+const rainbowBtn = document.getElementById('rainbow-button');
+const blackBtn = document.getElementById('black-button');
+const clearBtn = document.getElementById('clear-button');
+const eraserBtn = document.getElementById('eraser-button');
+let blackBtnPressed;
+let rainbowBtnPressed;
+let eraserBtnPressed;
 
 
 function createGrid(number){
@@ -13,7 +20,6 @@ function createGrid(number){
     }
     sizeTell.textContent = `The pad is ${number}x${number} squares`
 }
-
 
 function getSize(){
     const mainContainer = document.getElementById('main-container');
@@ -36,7 +42,7 @@ function getSize(){
         for (let i = 0; i < eachCell.length; i++) {
             eachCell[i].addEventListener('mouseover', function(e){
                 if(e.buttons == 1 || e.buttons == 3){
-                    coloring(e);
+                    blackColoring(e);
                 }
             });
         }
@@ -44,7 +50,17 @@ function getSize(){
     
 }
 
-function coloring(event){
+function getRandomColor(){
+    let randomColor = Math.floor(Math.random() * (256 - 1 + 1)) + 1;
+    return randomColor;
+}
+
+function rainbowColoring(event){
+    event.srcElement.style.cssText = `background-color: rgb(${getRandomColor()},${getRandomColor()},${getRandomColor()});`;
+    console.log(event.srcElement.id);
+}
+
+function blackColoring(event){
     event.srcElement.style.cssText = "background-color: black;";
     console.log(event.srcElement.id);
 }
@@ -54,10 +70,34 @@ sizeBtn.addEventListener('click', getSize);
 
 let eachCell = document.querySelectorAll('.cell');
 
+blackBtn.addEventListener('click', function(e){
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mouseover', function(e){
+            if(e.buttons == 1){
+                blackColoring(e);
+            }
+        });
+    }
+});
+
+rainbowBtn.addEventListener('click', function(e){
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mouseover', function(e){
+            if(e.buttons == 1){
+                rainbowColoring(e);
+            }
+        });
+    }
+});
+
+
+
+
 for (let i = 0; i < eachCell.length; i++) {
     eachCell[i].addEventListener('mouseover', function(e){
-        if(e.buttons == 1 || e.buttons == 3){
-            coloring(e);
+        if(e.buttons == 1){
+            blackColoring(e);
         }
     });
 }
+
