@@ -14,7 +14,6 @@ function createGrid(number){
     sizeTell.textContent = `The pad is ${number}x${number} squares`
 }
 
-createGrid(16);
 
 function getSize(){
     const mainContainer = document.getElementById('main-container');
@@ -33,26 +32,32 @@ function getSize(){
           }
     
         createGrid(floorSquares);
+        let eachCell = document.querySelectorAll('.cell');
+        for (let i = 0; i < eachCell.length; i++) {
+            eachCell[i].addEventListener('mouseover', function(e){
+                if(e.buttons == 1 || e.buttons == 3){
+                    coloring(e);
+                }
+            });
+        }
     }
     
 }
 
-let eachCell = document.querySelectorAll('.cell');
-
-for (let i = 0; i < eachCell.length; i++) {
-    eachCell[i].addEventListener('mouseover', getId);
-}
-// eachCell.addEventListener('click', getId);
-
-function getId(event){
-    if(event.buttons == 1 || event.buttons == 3){
-    console.log("1 or 3")
-    }
+function coloring(event){
     event.srcElement.style.cssText = "background-color: black;";
     console.log(event.srcElement.id);
 }
 
-function coloring(id){
-    let individualCell = document.getElementById(`number-${id}`);
-    individualCell.style.cssText = "background-color: black;";
+createGrid(16);
+sizeBtn.addEventListener('click', getSize);
+
+let eachCell = document.querySelectorAll('.cell');
+
+for (let i = 0; i < eachCell.length; i++) {
+    eachCell[i].addEventListener('mouseover', function(e){
+        if(e.buttons == 1 || e.buttons == 3){
+            coloring(e);
+        }
+    });
 }

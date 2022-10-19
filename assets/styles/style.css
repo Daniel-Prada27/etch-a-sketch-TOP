@@ -11,7 +11,7 @@ body {
 }
 
 div {
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     flex: 1 1 auto;
     min-width: 30px;
@@ -46,13 +46,21 @@ div {
     min-height: 0;
     background-color: rgb(201, 201, 200);
     border: solid black 1px;
+    margin: 0px;
 }
 
 .cell:focus {
     background-color: rgba(60, 91, 160, 0.767);
 }
 
-#pad-size-button {
+#buttons-container {
+    display: flex;
+    padding: 0%;
+    justify-content: space-evenly;
+    flex: 0 1 auto;
+}
+
+.button {
     border-radius: 12px;
     padding-top: 5px;
     padding-bottom: 5px;
