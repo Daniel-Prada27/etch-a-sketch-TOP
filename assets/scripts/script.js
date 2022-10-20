@@ -84,6 +84,15 @@ blackBtn.addEventListener('click', function(e){
             }
         });
     }
+
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mousedown', function(e){
+            
+                blackColoring(e);
+            
+        });
+    }
+
 });
 
 rainbowBtn.addEventListener('click', function(e){
@@ -99,6 +108,14 @@ rainbowBtn.addEventListener('click', function(e){
             }
         });
     }
+
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mousedown', function(e){
+            
+                rainbowColoring(e);
+            
+        });
+    }
 });
 
 eraserBtn.addEventListener('click', function(e){
@@ -112,6 +129,13 @@ eraserBtn.addEventListener('click', function(e){
             }
         });
     }
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mousedown', function(e){
+            
+                eraserColoring(e);
+            
+        });
+    }
 });
 
 clearBtn.addEventListener('click', function(e){
@@ -123,11 +147,4 @@ clearBtn.addEventListener('click', function(e){
     }
 });
 
-// for (let i = 0; i < eachCell.length; i++) {
-//     eachCell[i].addEventListener('mouseover', function(e){
-//         if(e.buttons == 1){
-//             blackColoring(e);
-//         }
-//     });
-// }
 
