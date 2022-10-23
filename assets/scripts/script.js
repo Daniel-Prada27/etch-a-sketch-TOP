@@ -148,9 +148,9 @@ eraserBtn.addEventListener('click', function(e){
 });
 
 clearBtn.addEventListener('click', function(e){
-    blackBtn.style.cssText = "background-color: rgb(173, 43, 43)";
-    rainbowBtn.style.cssText = "background-color: rgb(173, 43, 43);"
-    eraserBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    // blackBtn.style.cssText = "background-color: rgb(173, 43, 43)";
+    // rainbowBtn.style.cssText = "background-color: rgb(173, 43, 43);"
+    // eraserBtn.style.cssText = "background-color: rgb(173, 43, 43);"
     for (let i = 0; i < eachCell.length; i++) {
         eachCell[i].style.cssText = "background-color: rgb(201, 201, 200);"
     }
@@ -167,25 +167,6 @@ function checkBlackBtnColor(){
     top = m.getPropertyValue('background-color');
     return top;
 }
-
-    // if (checkRainbowBtnColor() == "rgb(255, 0, 0)"){
-    //     for (let i = 0; i < eachCell.length; i++) {
-    //         eachCell[i].addEventListener('mouseover', function(e){
-    //             if(e.buttons == 1){
-    //                 rainbowColoring(e);
-    //             }
-    //         });
-    //     }
-    // } else if (checkBlackBtnColor() == "rgb(255, 0, 0)"){
-    //     for (let i = 0; i < eachCell.length; i++) {
-    //         eachCell[i].addEventListener('mouseover', function(e){
-    //             if(e.buttons == 1){
-    //                 blackColoring(e);
-    //             }
-    //         });
-    //     }
-    // }
-
 
     for (let i = 0; i < eachCell.length; i++) {
         eachCell[i].addEventListener('mouseover', function(e){
