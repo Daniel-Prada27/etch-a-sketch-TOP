@@ -4,7 +4,7 @@ const rainbowBtn = document.getElementById('rainbow-button');
 const blackBtn = document.getElementById('black-button');
 const clearBtn = document.getElementById('clear-button');
 const eraserBtn = document.getElementById('eraser-button');
-let eachCell;
+let eachCell; //Every square of the canvas
 
 function createGrid(number){
     const mainContainer = document.getElementById('main-container');
@@ -16,13 +16,22 @@ function createGrid(number){
         mainContainer.appendChild(divFromGrid);
     }
     eachCell = document.querySelectorAll('.cell');
-
-    for (let i = 0; i < eachCell.length; i++) {
-        eachCell[i].addEventListener('mouseover', function(e){
-            if(e.buttons == 1){
-                blackColoring(e);
-            }
-        });
+    if (checkRainbowBtnColor() == "rgb(255, 0, 0)"){
+        for (let i = 0; i < eachCell.length; i++) {
+            eachCell[i].addEventListener('mouseover', function(e){
+                if(e.buttons == 1){
+                    rainbowColoring(e);
+                }
+            });
+        }
+    } else if (checkBlackBtnColor() == "rgb(255, 0, 0)"){
+        for (let i = 0; i < eachCell.length; i++) {
+            eachCell[i].addEventListener('mouseover', function(e){
+                if(e.buttons == 1){
+                    blackColoring(e);
+                }
+            });
+        }
     }
     sizeTell.textContent = `The pad is ${number}x${number} squares`
 }
@@ -147,4 +156,41 @@ clearBtn.addEventListener('click', function(e){
     }
 });
 
+function checkRainbowBtnColor(){
+    let m = window.getComputedStyle(rainbowBtn),
+    top = m.getPropertyValue('background-color');
+    return top;
+}
 
+function checkBlackBtnColor(){
+    let m = window.getComputedStyle(blackBtn),
+    top = m.getPropertyValue('background-color');
+    return top;
+}
+
+    // if (checkRainbowBtnColor() == "rgb(255, 0, 0)"){
+    //     for (let i = 0; i < eachCell.length; i++) {
+    //         eachCell[i].addEventListener('mouseover', function(e){
+    //             if(e.buttons == 1){
+    //                 rainbowColoring(e);
+    //             }
+    //         });
+    //     }
+    // } else if (checkBlackBtnColor() == "rgb(255, 0, 0)"){
+    //     for (let i = 0; i < eachCell.length; i++) {
+    //         eachCell[i].addEventListener('mouseover', function(e){
+    //             if(e.buttons == 1){
+    //                 blackColoring(e);
+    //             }
+    //         });
+    //     }
+    // }
+
+
+    for (let i = 0; i < eachCell.length; i++) {
+        eachCell[i].addEventListener('mouseover', function(e){
+            if(e.buttons == 1){
+                blackColoring(e);
+            }
+        });
+    }
